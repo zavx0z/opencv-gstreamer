@@ -1,9 +1,9 @@
 FROM ubuntu:20.04
 ARG DEBIAN_FRONTEND=noninteractive
 ENV XDG_RUNTIME_DIR=/home/tmp
-#install gstreamer1.0
 RUN \
     apt-get update && apt-get upgrade -y && apt-get install -y \
+    # install gstreamer1.0
     gstreamer1.0-libav \
     gstreamer1.0-nice \
     gstreamer1.0-plugins-bad \
