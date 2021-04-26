@@ -1,9 +1,9 @@
-FROM ubuntu:20.04
+FROM zavx0z/python3:latest
 ARG DEBIAN_FRONTEND=noninteractive
 ENV XDG_RUNTIME_DIR=/home/tmp
+#install gstreamer1.0
 RUN \
     apt-get update && apt-get upgrade -y && apt-get install -y \
-    # install gstreamer1.0
     gstreamer1.0-libav \
     gstreamer1.0-nice \
     gstreamer1.0-plugins-bad \
@@ -14,14 +14,13 @@ RUN \
     gstreamer1.0-tools \
     ubuntu-restricted-extras \
     # install lib, dev package
+    libgtk2.0-dev \
     libgstreamer1.0-dev \
     libgstreamer-plugins-base1.0-dev \
     # Install requirements for make
     git \
     build-essential \
-    cmake \
-    python3-dev \
-    python3-pip && \
+    cmake && \
     pip3 install numpy && \
     # Clone and prepare to make opencv
     git clone https://github.com/opencv/opencv.git && \
